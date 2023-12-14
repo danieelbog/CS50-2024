@@ -1,6 +1,6 @@
 # World 1-1 Mario Pyramid Printer
 
-![Mario Pyramids](https://github.com/danieelbog/CS50-Assignment-Mario-More/assets/54244808/b5188f4c-c506-4b09-beaa-e61076c5193c)
+![image](https://github.com/danieelbog/CS50-2023/assets/54244808/21c4659f-9c25-4b67-bb6a-616374f5ba15)
 
 ## Overview
 
