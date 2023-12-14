@@ -3,7 +3,7 @@
 Play game at:
 **https://scratch.mit.edu/projects/938382983/**
 
-![image](https://github.com/danieelbog/CS50-Scratch-Assignment/assets/54244808/152b682c-4281-407c-b918-a16a1de89343)
+![image](https://github.com/danieelbog/CS50-2023/assets/54244808/595cdb11-2219-4361-8bbe-baa6b06e2203)
 
 # Cat-astrophe Showdown 🚀🐾
 
