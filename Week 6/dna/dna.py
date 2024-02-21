@@ -5,15 +5,12 @@ import sys
 def main():
 
     # TODO: Check for command-line usage
-    csv_filename = ""
-    txt_filename = ""
+    if (len(sys.argv) < 3):
+        print("You didn't provide all needed command line arguments. Program will exit!")
+        return
 
-    for i in range(len(sys.argv)):
-        if (len(sys.argv) < 3):
-            print("You didn't provide all needed command line arguments. Program will exit!")
-            return
-        csv_filename = sys.argv[1]
-        txt_filename = sys.argv[2]
+    csv_filename = sys.argv[1]
+    txt_filename = sys.argv[2]
 
     # TODO: Read database file into a variable
     rows = []
