@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            const resetAnswerState = (parentElement) => {
+                const answers = parentElement.querySelectorAll("button");
+                answers.forEach((answer) => {
+                    answer.style.backgroundColor = "#d9edff";
+                })
+            }
+
+            const setToCorrect = (inputElement, feedbackElement) => {
+                inputElement.style.backgroundColor = 'green';
+                feedbackElement.textContent = "Correct!";
+            }
+
+            const setToIncorrect = (inputElement, feedbackElement) => {
+                inputElement.style.backgroundColor = 'red';
+                feedbackElement.textContent = "Incorrect";
+            }
+
+            const checkIfAnswerIsCorrect = (clickedButton) => {
+                resetAnswerState(clickedButton.parentElement);
+
+                const feedbackElement = clickedButton.parentElement.querySelector(".feedback");
+                if (clickedButton.classList.contains("incorrect"))
+                {
+                    setToIncorrect(clickedButton, feedbackElement)
+                }
+                else
+                {
+                    setToCorrect(clickedButton, feedbackElement)
+                }
+            }
+
+            const checkIfOpenAnsweIsCorrect = (clickedButton) => {
+                resetAnswerState(clickedButton.parentElement);
+
+                const feedbackElement = clickedButton.parentElement.querySelector(".feedback");
+                const inputElement = clickedButton.parentElement.querySelector("input");
+
+                switch (clickedButton.id) {
+                    case "check_1":
+                        if (inputElement.value.toLowerCase() === "great britain" || inputElement.value.toLowerCase() === "united kingdom")
+                        {
+                            setOpenQuestionToCorrect(inputElement, feedbackElement);
+                        }
+                        else
+                        {
+                            setOpenQuestionToIncorrect(inputElement, feedbackElement);
+                        }
+                        break;
+                    case "check_2":
+                        if (inputElement.value.toLowerCase() === "russia" || inputElement.value.toLowerCase() === "russian federation")
+                        {
+                            setOpenQuestionToCorrect(inputElement, feedbackElement);
+                        }
+                        else
+                        {
+                            setOpenQuestionToIncorrect(inputElement, feedbackElement);
+                            console.log("lol")
+                        }
+                        break;
+                    case "check_3":
+                        if (inputElement.value.toLowerCase() === "greece" || inputElement.value.toLowerCase() === "hellas")
+                        {
+                            setOpenQuestionToCorrect(inputElement, feedbackElement);
+                        }
+                        else
+                        {
+                            setOpenQuestionToIncorrect(inputElement, feedbackElement);
+                        }
+                        break;
+                    }
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>Is the earth flat?</h3>
+                <div>
+                    <button class="incorrect" onclick="checkIfAnswerIsCorrect(this)">YES</button>
+                    <button class="correct" onclick="checkIfAnswerIsCorrect(this)">NO</button>
+                    <button class="incorrect" onclick="checkIfAnswerIsCorrect(this)">Probably No</button>
+                    <button class="incorrect" onclick="checkIfAnswerIsCorrect(this)">Probably Yes</button>
+                    <p class="feedback"></p>
+                </div>
+                <hr>
+                <h3>How many genders exist?</h3>
+                <div>
+                    <button class="correct" onclick="checkIfAnswerIsCorrect(this)">2</button>
+                    <button class="incorrect" onclick="checkIfAnswerIsCorrect(this)">More or equal to 64</button>
+                    <button class="incorrect" onclick="checkIfAnswerIsCorrect(this)">More than 2</button>
+                    <button class="incorrect" onclick="checkIfAnswerIsCorrect(this)">Less than 2</button>
+                    <p class="feedback"></p>
+                </div>
+                <hr>
+                <h3>What is a woman?</h3>
+                <div>
+                    <button class="incorrect" onclick="checkIfAnswerIsCorrect(this)">A person with XYX chromosomes</button>
+                    <button class="incorrect" onclick="checkIfAnswerIsCorrect(this)">A person with XY chromosomes</button>
+                    <button class="incorrect" onclick="checkIfAnswerIsCorrect(this)">A person with XXY chromosomes</button>
+                    <button class="correct" onclick="checkIfAnswerIsCorrect(this)">A person with XX chromosomes</button>
+                    <p class="feedback"></p>
+                </div>
+                <hr>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>In which country 3300 people were arrested for posting something on social media in 2018?</h3>
+                <div>
+                    <input type="text"></input>
+                    <button id="check_1" onclick="checkIfOpenAnsweIsCorrect(this)">Check Answer</button>
+                    <p class="feedback"></p>
+                </div>
+                <hr>
+                <h3>In which country 400 people were arrested for posting something on social media in 2018?</h3>
+                <div>
+                    <input type="text"></input>
+                    <button id="check_2" onclick="checkIfOpenAnsweIsCorrect(this)">Check Answer</button>
+                    <p class="feedback"></p>
+                </div>
+                <hr>
+                <h3>In which country 57 people died due to train collision because there were no digital safety meassures on the railroad?</h3>
+                <div>
+                    <input type="text"></input>
+                    <button id="check_3" onclick="checkIfOpenAnsweIsCorrect(this)">Check Answer</button>
+                    <p class="feedback"></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
