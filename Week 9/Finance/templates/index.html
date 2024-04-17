@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block main %}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th class="text-end">Price</th>
+            <th class="text-end">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for share in portfolio %}
+        <tr>
+            <td>{{ share["symbol"] }}</td>
+            <td>{{ share["sumquantity"]}}</td>
+            <td class="text-end">{{ share["price"] | usd}}</td>
+            <td class="text-end">{{ share["total"] | usd}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="3">Cash</td>
+            <td class="border-0 fw-bold text-end">{{ cash | usd }}</td>
+        </tr>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="3">Total</td>
+            <td class="border-0 fw-bold text-end">{{ total | usd }}</td>
+        </tr>
+      </tfoot>
+</table>
+{% endblock %}
